@@ -59,7 +59,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 13px 60px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -91,60 +91,108 @@ section {
 /* ========================================
    HOME SECTION
 ======================================== */
-.home-content { flex:1 1 450px; }
-.home-content h3 { color:#ff4d4d; font-size:1.5rem; }
-.home-content h1 { font-size:1.8rem; margin:10px 0; } /* reduced size */
-.home-content h2 { font-size:1.4rem; margin:5px 0; color:#ff1a1a; } /* smaller typing text */
-.cursor { display:inline-block; margin-left:3px; color:#ff1a1a; animation: blink 0.7s infinite; }
+.home-content {
+  flex: 1;
+  max-width: calc(100% - 260px); /* leave space for image */
+  padding-right: 20px;
+}
+.home-content h3 {
+  color: #ff4d4d;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+.home-content h1 {
+  font-size: 2.2rem;
+  margin: 5px 0;
+}
+.home-content h2 {
+  font-size: 1.6rem;
+  margin: 5px 0;
+  color: #ff1a1a;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: #ff1a1a;
+  animation: blink 0.7s infinite;
+}
 @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
 
-.home-img { flex:1 1 300px; display:flex; justify-content:center; align-items:center; }
-.home-img img { width:230px; height:230px; border-radius:50%; border:4px solid #ff1a1a; object-fit:cover; box-shadow:0 0 25px #ff1a1a; animation: float 4s ease-in-out infinite; }
+/* IMAGE FIXED ON RIGHT */
+.home-img {
+  position: absolute; 
+  right: 70px;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 230px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #ff1a1a;
+  object-fit: cover;
+  box-shadow: 0 0 25px #ff1a1a;
+  animation: float 4s ease-in-out infinite;
+}
 @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 
-.btn { margin-top:20px; display:inline-block; padding:10px 25px; background:#ff1a1a; color:#fff; border-radius:25px; font-weight:600; text-decoration:none; }
-.btn:hover { background:#ff4d4d; transform:scale(1.05); }
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 25px;
+  background: #ff1a1a;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: #ff4d4d; transform: scale(1.05); }
 
-/* ========================================
-   ABOUT, SKILLS, PROJECTS, CONTACT
-======================================== */
-#about, #skills, #projects, #contact { text-align:center; padding:80px 40px; color:#fff; }
-#about h2, #skills h2, #projects h2, #contact h2 { color:#ff1a1a; margin-bottom:20px; }
-#about p, #contact p { max-width:800px; margin:0 auto; line-height:1.8; color:#ccc; font-size:0.9rem; } /* smaller font */
+/* ABOUT, SKILLS, PROJECTS, CONTACT */
+#about, #skills, #projects, #contact { text-align: center; padding: 80px 40px; color: #fff; }
+#about h2, #skills h2, #projects h2, #contact h2 { color: #ff1a1a; margin-bottom: 20px; }
+#about p, #contact p { max-width: 800px; margin: 0 auto; line-height: 1.8; color: #ccc; font-size: 0.9rem; }
 
 /* SKILLS */
-.skills-list { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:30px; }
-.skill-card { background:rgba(17,17,17,0.8); color:#fff; padding:15px 20px; border-radius:15px; width:200px; text-align:left; border:2px solid #ff1a1a; }
-.skill-card img { width:24px; vertical-align:middle; margin-right:8px; }
-.skill-card span { font-weight:600; }
-.skill-card .progress { height:8px; border-radius:5px; background:#111; margin-top:8px; }
-.skill-card .progress-inner { height:100%; background:#ff1a1a; border-radius:5px; width:0%; transition:0.5s; }
+.skills-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+.skill-card { background: rgba(17,17,17,0.8); color: #fff; padding: 15px 20px; border-radius: 15px; width: 200px; text-align: left; border: 2px solid #ff1a1a; }
+.skill-card img { width: 24px; vertical-align: middle; margin-right: 8px; }
+.skill-card span { font-weight: 600; }
+.skill-card .progress { height: 8px; border-radius: 5px; background: #111; margin-top: 8px; }
+.skill-card .progress-inner { height: 100%; background: #ff1a1a; border-radius: 5px; width: 0%; transition: 0.5s; }
 
 /* PROJECTS */
-.project-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start; margin-top:30px; }
-.project-card { background:rgba(17,17,17,0.8); border-radius:15px; width:250px; padding:20px; color:#fff; box-shadow:0 0 15px rgba(255,26,26,0.2); border:2px solid #ff1a1a; transition:0.3s; margin:0 10px; }
-.project-card:hover { transform:translateY(-5px); box-shadow:0 0 25px #ff1a1a; }
+.project-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; margin-top: 30px; }
+.project-card { background: rgba(17,17,17,0.8); border-radius: 15px; width: 250px; padding: 20px; color: #fff; box-shadow: 0 0 15px rgba(255,26,26,0.2); border: 2px solid #ff1a1a; transition: 0.3s; margin: 0 10px; }
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px #ff1a1a; }
 
 /* CONTACT */
-#contact form { max-width:500px; margin:20px auto 0; display:flex; flex-direction:column; gap:15px; }
-#contact input, #contact textarea { padding:12px; border-radius:8px; border:none; outline:none; font-family:"Poppins",sans-serif; }
-#contact button { padding:12px; border-radius:8px; border:none; background:#ff1a1a; color:#fff; font-weight:600; cursor:pointer;}
-#contact button:hover { background:#ff4d4d; transform:scale(1.05); }
-#statusMessage { text-align:center; margin-top:10px; color:#00ff00; font-weight:600; }
+#contact form { max-width: 500px; margin: 20px auto 0; display: flex; flex-direction: column; gap: 15px; }
+#contact input, #contact textarea { padding: 12px; border-radius: 8px; border: none; outline: none; font-family: "Poppins",sans-serif; }
+#contact button { padding: 12px; border-radius: 8px; border: none; background: #ff1a1a; color: #fff; font-weight: 600; cursor: pointer; }
+#contact button:hover { background: #ff4d4d; transform: scale(1.05); }
+#statusMessage { text-align: center; margin-top: 10px; color: #00ff00; font-weight: 600; }
 
 /* SOCIAL ICONS */
-.social-icons { display:flex; justify-content:center; gap:20px; margin-top:20px; flex-wrap:wrap; }
-.social-icons a { display:flex; align-items:center; justify-content:center; font-size:1.6rem; width:55px; height:55px; border-radius:50%; }
-.facebook{background:#1877f2; color:#fff;} .tiktok{background:#000; color:#fff;} .youtube{background:#ff0000; color:#fff;} .telegram{background:#0088cc; color:#fff;}
-.social-icons a:hover { transform:scale(1.15); box-shadow:0 0 20px rgba(255,26,26,0.4); }
+.social-icons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+.social-icons a { display: flex; align-items: center; justify-content: center; font-size: 1.6rem; width: 55px; height: 55px; border-radius: 50%; }
+.facebook{background:#1877f2;color:#fff;} .tiktok{background:#000;color:#fff;} .youtube{background:#ff0000;color:#fff;} .telegram{background:#0088cc;color:#fff;}
+.social-icons a:hover { transform: scale(1.15); box-shadow: 0 0 20px rgba(255,26,26,0.4); }
 
 /* FOOTER */
-footer { text-align:center; padding:15px; background:rgba(0,0,0,0.8); color:#ccc; font-size:0.9rem; }
+footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.8); color: #ccc; font-size: 0.9rem; }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  section{flex-direction:column;text-align:center;padding:80px 20px;}
-  .home-content,.home-img{max-width:100%;}
+  section { flex-direction: column; text-align: center; padding: 80px 20px; }
+  .home-content, .home-img { max-width: 100%; }
+  .home-img { position: relative; transform: none; right: auto; top: auto; margin: 20px auto 0; }
 }
 </style>
 </head>
@@ -226,7 +274,7 @@ footer { text-align:center; padding:15px; background:rgba(0,0,0,0.8); color:#ccc
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact Me</h2>
-  <p>Send me a message directly via Telegram 👇</p>
+  <p>Send me a message directly via Telegram </p>
   <form id="telegramForm">
     <input type="text" id="name" placeholder="Your Name" required>
     <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
@@ -251,7 +299,6 @@ const texts = ["Web Designer", "Web Developer", "Frontend Developer"];
 let count = 0, index = 0, currentText = '';
 const typingSpeed = 150, erasingSpeed = 80, delay = 1500;
 const typingElement = document.getElementById('typing-text');
-
 function type() {
   if(index < texts[count].length){
     currentText += texts[count][index];
@@ -260,44 +307,36 @@ function type() {
     setTimeout(type, typingSpeed);
   } else { setTimeout(erase, delay); }
 }
-
 function erase() {
   if(index > 0){
-    currentText = texts[count].substring(0, index-1);
+    currentText = texts[count].substring(0,index-1);
     typingElement.textContent = currentText;
     index--;
     setTimeout(erase, erasingSpeed);
   } else {
-    count = (count + 1) % texts.length;
+    count = (count+1)%texts.length;
     setTimeout(type, typingSpeed);
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => { if(texts.length) type(); });
+document.addEventListener("DOMContentLoaded",()=>{if(texts.length)type();});
 
 // Telegram Bot Form
 const telegramForm = document.getElementById('telegramForm');
 const statusMessage = document.getElementById('statusMessage');
-
-telegramForm.addEventListener('submit', async (e) => {
+telegramForm.addEventListener('submit', async e => {
   e.preventDefault();
-
   const name = document.getElementById('name').value;
   const message = document.getElementById('message').value;
   statusMessage.textContent = "Sending...";
-
-  const botToken = '8244729883:AAGVRULuKC8Adid5eDbqalqIK_E14NcYAA4'; // Your bot token
-  const chatId = '8238301494'; // Your chat ID
-
-  try {
+  const botToken = '8354705206:AAErV5zTqDdwIgph6mXhDFUfGREGLcpDW5Q';
+  const chatId = '8238301494';
+  try{
     const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: `Name: ${name}\nMessage: ${message}` })
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id: chatId, text:`Name: ${name}\nMessage: ${message}`})
     });
-
     const data = await response.json();
-
     if(data.ok){
       statusMessage.textContent = "Message has been sent.";
       telegramForm.reset();
@@ -305,7 +344,7 @@ telegramForm.addEventListener('submit', async (e) => {
       statusMessage.textContent = "Error sending message.";
       console.error(data);
     }
-  } catch (err) {
+  } catch(err){
     statusMessage.textContent = "Error sending message.";
     console.error(err);
   }
@@ -313,4 +352,4 @@ telegramForm.addEventListener('submit', async (e) => {
 </script>
 
 </body>
-</html>
+   </html>
