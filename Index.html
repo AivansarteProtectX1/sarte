@@ -11,39 +11,90 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* LANDSCAPE ONLY */
+/* ========================================
+   GENERAL RESET & BASE
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  transition: 0.3s;
+}
+
+body {
+  background: url('39475270-b658-4a8f-a7d0-fd1843b99ad4.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* ========================================
+   LANDSCAPE ONLY MESSAGE
+======================================== */
 @media screen and (orientation: portrait) {
   body::before {
     content: "Please rotate your device to landscape mode.";
-    position: fixed; top:0; left:0; width:100%; height:100%;
-    display:flex; justify-content:center; align-items:center;
-    background:#111; color:#fff; font-size:1.5rem; text-align:center;
-    z-index:9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    z-index: 9999;
   }
-  body > * { display:none; }
+  body > * { display: none; }
 }
 
-/* GENERAL */
-* { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; scroll-behavior:smooth; transition:0.3s; }
-body { 
-  background: url('39475270-b658-4a8f-a7d0-fd1843b99ad4.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  color:#fff; 
+/* ========================================
+   HEADER & NAVIGATION
+======================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(10px);
+}
+header h2 { color: #ff1a1a; font-weight: 600; }
+nav { display: flex; gap: 25px; }
+nav a { color: #fff; text-decoration: none; font-weight: 500; }
+nav a:hover { color: #ff4d4d; }
+
+/* ========================================
+   SECTIONS & LAYOUT
+======================================== */
+section {
+  min-height: 100vh;
+  padding: 100px 60px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  border: 2px solid #ff1a1a;
+  margin: 20px 0;
 }
 
-/* HEADER */
-header { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; position:fixed; top:0; width:100%; z-index:100; background:rgba(17,17,17,0.85); backdrop-filter:blur(10px);}
-header h2 { color:#ff1a1a; font-weight:600; }
-nav { display:flex; gap:25px; }
-nav a { color:#fff; text-decoration:none; font-weight:500; transition:0.3s; }
-nav a:hover { color:#ff4d4d; }
-
-/* SECTIONS */
-section { min-height:100vh; padding:100px 60px 60px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; background:rgba(0,0,0,0.6); border-radius:15px; border:2px solid #ff1a1a; margin:20px 0; }
+/* ========================================
+   HOME SECTION
+======================================== */
 .home-content { flex:1 1 450px; }
 .home-content h3 { color:#ff4d4d; font-size:1.5rem; }
-.home-content h1 { font-size:2.5rem; margin:10px 0; }
-.home-content h2 { font-size:1.8rem; margin:5px 0; color:#ff1a1a; }
+.home-content h1 { font-size:1.8rem; margin:10px 0; } /* reduced size */
+.home-content h2 { font-size:1.4rem; margin:5px 0; color:#ff1a1a; } /* smaller typing text */
 .cursor { display:inline-block; margin-left:3px; color:#ff1a1a; animation: blink 0.7s infinite; }
 @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
 
@@ -51,40 +102,50 @@ section { min-height:100vh; padding:100px 60px 60px; display:flex; align-items:c
 .home-img img { width:230px; height:230px; border-radius:50%; border:4px solid #ff1a1a; object-fit:cover; box-shadow:0 0 25px #ff1a1a; animation: float 4s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 
-.btn { margin-top:20px; display:inline-block; padding:10px 25px; background:#ff1a1a; color:#fff; border-radius:25px; font-weight:600; text-decoration:none; transition:0.3s; }
+.btn { margin-top:20px; display:inline-block; padding:10px 25px; background:#ff1a1a; color:#fff; border-radius:25px; font-weight:600; text-decoration:none; }
 .btn:hover { background:#ff4d4d; transform:scale(1.05); }
 
-/* ABOUT / SKILLS / PROJECTS / CONTACT */
+/* ========================================
+   ABOUT, SKILLS, PROJECTS, CONTACT
+======================================== */
 #about, #skills, #projects, #contact { text-align:center; padding:80px 40px; color:#fff; }
 #about h2, #skills h2, #projects h2, #contact h2 { color:#ff1a1a; margin-bottom:20px; }
-#about p, #contact p { max-width:800px; margin:0 auto; line-height:1.8; color:#ccc; }
+#about p, #contact p { max-width:800px; margin:0 auto; line-height:1.8; color:#ccc; font-size:0.9rem; } /* smaller font */
 
+/* SKILLS */
 .skills-list { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:30px; }
-.skill-card { background:rgba(17,17,17,0.8); color:#fff; padding:15px 20px; border-radius:15px; width:200px; text-align:left; border:2px solid #ff1a1a; transition:0.3s; }
+.skill-card { background:rgba(17,17,17,0.8); color:#fff; padding:15px 20px; border-radius:15px; width:200px; text-align:left; border:2px solid #ff1a1a; }
 .skill-card img { width:24px; vertical-align:middle; margin-right:8px; }
 .skill-card span { font-weight:600; }
 .skill-card .progress { height:8px; border-radius:5px; background:#111; margin-top:8px; }
 .skill-card .progress-inner { height:100%; background:#ff1a1a; border-radius:5px; width:0%; transition:0.5s; }
 
+/* PROJECTS */
 .project-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start; margin-top:30px; }
-.project-card { background:rgba(17,17,17,0.8); border-radius:15px; width:250px; padding:20px; color:#fff; box-shadow:0 0 15px rgba(255,26,26,0.2); transition:0.3s; border:2px solid #ff1a1a; margin:0 10px; }
+.project-card { background:rgba(17,17,17,0.8); border-radius:15px; width:250px; padding:20px; color:#fff; box-shadow:0 0 15px rgba(255,26,26,0.2); border:2px solid #ff1a1a; transition:0.3s; margin:0 10px; }
 .project-card:hover { transform:translateY(-5px); box-shadow:0 0 25px #ff1a1a; }
 
+/* CONTACT */
 #contact form { max-width:500px; margin:20px auto 0; display:flex; flex-direction:column; gap:15px; }
 #contact input, #contact textarea { padding:12px; border-radius:8px; border:none; outline:none; font-family:"Poppins",sans-serif; }
 #contact button { padding:12px; border-radius:8px; border:none; background:#ff1a1a; color:#fff; font-weight:600; cursor:pointer;}
 #contact button:hover { background:#ff4d4d; transform:scale(1.05); }
-
 #statusMessage { text-align:center; margin-top:10px; color:#00ff00; font-weight:600; }
 
+/* SOCIAL ICONS */
 .social-icons { display:flex; justify-content:center; gap:20px; margin-top:20px; flex-wrap:wrap; }
-.social-icons a { display:flex; align-items:center; justify-content:center; font-size:1.6rem; width:55px; height:55px; border-radius:50%; transition:0.3s; }
+.social-icons a { display:flex; align-items:center; justify-content:center; font-size:1.6rem; width:55px; height:55px; border-radius:50%; }
 .facebook{background:#1877f2; color:#fff;} .tiktok{background:#000; color:#fff;} .youtube{background:#ff0000; color:#fff;} .telegram{background:#0088cc; color:#fff;}
 .social-icons a:hover { transform:scale(1.15); box-shadow:0 0 20px rgba(255,26,26,0.4); }
 
+/* FOOTER */
 footer { text-align:center; padding:15px; background:rgba(0,0,0,0.8); color:#ccc; font-size:0.9rem; }
 
-@media(max-width:768px){ section{flex-direction:column;text-align:center;padding:80px 20px;} .home-content,.home-img{max-width:100%;} }
+/* RESPONSIVE */
+@media(max-width:768px){
+  section{flex-direction:column;text-align:center;padding:80px 20px;}
+  .home-content,.home-img{max-width:100%;}
+}
 </style>
 </head>
 
@@ -190,6 +251,7 @@ const texts = ["Web Designer", "Web Developer", "Frontend Developer"];
 let count = 0, index = 0, currentText = '';
 const typingSpeed = 150, erasingSpeed = 80, delay = 1500;
 const typingElement = document.getElementById('typing-text');
+
 function type() {
   if(index < texts[count].length){
     currentText += texts[count][index];
@@ -198,6 +260,7 @@ function type() {
     setTimeout(type, typingSpeed);
   } else { setTimeout(erase, delay); }
 }
+
 function erase() {
   if(index > 0){
     currentText = texts[count].substring(0, index-1);
@@ -209,32 +272,42 @@ function erase() {
     setTimeout(type, typingSpeed);
   }
 }
+
 document.addEventListener("DOMContentLoaded", () => { if(texts.length) type(); });
 
 // Telegram Bot Form
 const telegramForm = document.getElementById('telegramForm');
 const statusMessage = document.getElementById('statusMessage');
-let sentCount = 0;
 
 telegramForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if(sentCount >= 3) return;
-  sentCount++;
 
   const name = document.getElementById('name').value;
   const message = document.getElementById('message').value;
   statusMessage.textContent = "Sending...";
 
-  const botToken = '8363801250:AAExbzJLGAs7Lu-5-qRjzLIhnf1OutgBXGk';
-  const chatId = '8238301494';
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(`Name: ${name}\nMessage: ${message}`)}`;
+  const botToken = '8244729883:AAGVRULuKC8Adid5eDbqalqIK_E14NcYAA4'; // Your bot token
+  const chatId = '8238301494'; // Your chat ID
 
   try {
-    await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
-    statusMessage.textContent = "Message has been sent.";
-    telegramForm.reset();
+    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text: `Name: ${name}\nMessage: ${message}` })
+    });
+
+    const data = await response.json();
+
+    if(data.ok){
+      statusMessage.textContent = "Message has been sent.";
+      telegramForm.reset();
+    } else {
+      statusMessage.textContent = "Error sending message.";
+      console.error(data);
+    }
   } catch (err) {
     statusMessage.textContent = "Error sending message.";
+    console.error(err);
   }
 });
 </script>
